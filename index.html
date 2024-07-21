@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main container">
+            <header class="container">
+                <div class="logo">
+                    <p>Themebau.</p>
+                </div>
+                <nav>
+                    <div class="menu">
+                        <ul>
+                            <li>
+                                <a href="">home</a>
+                            </li>
+                            <li>
+                                <a href="">projects</a>
+                            </li>
+                            <li>
+                                <a href="">pages</a>
+                            </li>
+                            <li>
+                                <a href="">contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btns">
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                </nav>
+            </header>
+            
+            <div class="sliders">
+                <style>
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        font-family: "Commissioner", sans-serif;
+        line-height: 1.65;
+    }
+
+    a {
+        color: #c6ac8f;
+        text-decoration: none;
+    }
+
+    .slider {
+      height: 100vh;
+      width: 1170px;
+      background-color: #0a0908;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 2s;
+    }
+
+    .slider .credits {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      line-height: 1.65;
+      z-index: 10;
+      max-width: 320px;
+    }
+
+    .slider .item .imgs {
+      position: relative;
+      width: 60%;
+      padding-top: 60%;
+    }
+
+    .slider .item .imgs .grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      grid-column-gap: 32px;
+      grid-row-gap: 32px;
+      transform: rotate(-20deg);
+      opacity: 0.65;
+    }
+
+    .slider .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider .item .img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      will-change: transform;
+      will-change: opacity;
+    }
+
+    .slider .item .img img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      -webkit-filter: contrast(110%) brightness(110%) saturate(130%);
+      filter: contrast(110%) brightness(110%) saturate(130%);
+    }
+
+    .slider .item .img img::before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: rgba(243, 106, 188, 0.3);
+    }
+    .slider .item .img-1 {
+      grid-area: 1/1/7/5;
+    }
+
+    .slider .item .img-2 {
+      grid-area: 2/5/7/13;
+    }
+    .slider .item .img-3 {
+      grid-area: 7/1/12/9;
+    }
+    .slider .item .img-4 {
+      grid-area: 7/9/13/13;
+    }
+
+    .slider .item .content {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.15;
+      font-size: 8rem;
+      font-weight: 700;
+    }
+
+    .slider .item .content .wrap {
+      text-align: center;
+      text-shadow: 1px 1px 4px
+       rgba(10, 9, 8, 0.2);
+      width: 100%;
+      max-width: 600px;
+      line-height: 1;
+      margin-top: 600px;
+    }
+
+    .slider .item .content .wrap .letter {
+      display: inline-block;
+    }
+
+    .slider .nav .next,
+    .slider .nav .prev {
+      height: 2rem;
+      width: 2rem;
+      position: absolute;
+      top: calc(50% - 1rem);
+      cursor: pointer;
+      z-index: 3;
+      transition: transform 0.3s;
+    }
+
+    .slider .nav .next {
+      right: 2rem;
+      background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M 19 8 L 19 11 L 1 11 L 1 13 L 19 13 L 19 16 L 23 12 L 19 8 z' fill='white'/%3E%3C/svg%3E");
+    }
+
+    .slider .nav .next:hover {
+      transform: translateX(0.5rem);
+    }
+
+    .slider .nav .prev {
+      left: 2rem;
+      background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M 5 8 L 1 12 L 5 16 L 5 13 L 23 13 L 23 11 L 5 11 L 5 8 z' fill='white'/%3E%3C/svg%3E");
+    }
+
+    .slider .nav .prev:hover {
+      transform: translateX(-0.5rem);
+    }
+
+    .slider .nav .explore-btn {
+      z-index: 4;
+      position: absolute;
+      bottom: 2rem;
+      left: calc(50% - 4rem);
+      width: 8em;
+      text-align: center;
+      padding: 1rem 0;
+      border: solid 2px white;
+      background: transparent;
+      color: white;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .slider .nav .explore-btn:hover {
+      color: #0a0908;
+      background: white;
+    }
+
+    .slider .item:not(.is-active) {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider ">
+
+    <div class="nav">
+      <div class="next"></div>
+      <div class="prev"></div>
+      <div class="explore-btn">Explore</div>
+    </div>
+    <div class="item is-active">
+      <div class="content">
+        <div class="wrap">Novitates</div>
+      </div>
+      <div class="imgs">
+        <div class="grid">
+          <div class="img img-1"><img src="https://picsum.photos/seed/a/700/700" /></div>
+          <div class="img img-2"><img src="https://picsum.photos/seed/b/700/700" /></div>
+          <div class="img img-3"><img src="https://picsum.photos/seed/c/700/700" /></div>
+          <div class="img img-4"><img src="https://picsum.photos/seed/d/700/700" /></div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="wrap">Si spem</div>
+      </div>
+      <div class="imgs">
+        <div class="grid">
+          <div class="img img-1"><img src="https://picsum.photos/seed/e/700/700" /></div>
+          <div class="img img-2"><img src="https://picsum.photos/seed/f/700/700" /></div>
+          <div class="img img-3"><img src="https://picsum.photos/seed/g/700/700" /></div>
+          <div class="img img-4"><img src="https://picsum.photos/seed/h/700/700" /></div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="wrap">Adferunt</div>
+      </div>
+      <div class="imgs">
+        <div class="grid">
+          <div class="img img-1"><img src="https://picsum.photos/seed/i/700/700" /></div>
+          <div class="img img-2"><img src="https://picsum.photos/seed/j/700/700" /></div>
+          <div class="img img-3"><img src="https://picsum.photos/seed/k/700/700" /></div>
+          <div class="img img-4"><img src="https://picsum.photos/seed/l/700/700" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+  <script>
+    function init() {
+      const slider = document.querySelector(".slider");
+      const nextBtn = slider.querySelector(".slider .nav .next");
+      const prevBtn = slider.querySelector(".slider .nav .prev");
+      const items = slider.querySelectorAll(".slider .item");
+
+      let current = 0;
+
+      items.forEach((item) => {
+        const textWrapper = item.querySelector(".wrap");
+        textWrapper.innerHTML = textWrapper.textContent.replace(
+          /\S/g,
+          "<span class='letter'>$&</span>"
+        );
+      });
+
+      function anim(current, next, callback) {
+        const currentImgs = current.querySelectorAll(".img");
+        const currentText = current.querySelectorAll(".content .letter");
+        const nextImgs = next.querySelectorAll(".img");
+        const nextText = next.querySelectorAll(".content .letter");
+
+        const t = 400;
+        const offset = "-=" + t * .4;
+        const imgOffset = t * .8;
+
+        const tl = anime.timeline({
+          easing: "easeInOutQuint",
+          duration: t,
+          complete: callback
+        });
+
+        tl.add({
+          targets: currentText,
+          translateY: [0, '-.75em'],
+          opacity: [1, 0],
+          easing: "easeInQuint",
+          duration: t,
+          delay: (el, i) => 10 * (i + 1)
+        })
+          .add(
+            {
+              targets: currentImgs[0],
+              translateY: -600,
+              translateZ: 0,
+              rotate: [0, '-15deg'],
+              opacity: [1, 0],
+              easing: "easeInCubic"
+            },
+            offset
+          )
+          .add(
+            {
+              targets: currentImgs[1],
+              translateY: -600,
+              translateZ: 0,
+              rotate: [0, '15deg'],
+              opacity: [1, 0],
+              easing: "easeInCubic"
+            },
+            "-=" + imgOffset
+          )
+          .add(
+            {
+              targets: currentImgs[2],
+              translateY: -600,
+              translateZ: 0,
+              rotate: [0, '-15deg'],
+              opacity: [1, 0],
+              easing: "easeInCubic"
+            },
+            "-=" + imgOffset
+          )
+          .add(
+            {
+              targets: currentImgs[3],
+              translateY: -600,
+              translateZ: 0,
+              rotate: [0, '15deg'],
+              opacity: [1, 0],
+              easing: "easeInCubic"
+            },
+            "-=" + imgOffset
+          )
+          .add({
+            targets: current,
+            opacity: 0,
+            visibility: 'hidden',
+            duration: 10,
+            easing: "easeInCubic"
+          })
+          .add(
+            {
+              targets: next,
+              opacity: 1,
+              visibility: 'visible',
+              duration: 10
+            },
+            offset
+          )
+          .add(
+            {
+              targets: nextImgs[0],
+              translateY: [600, 0],
+              translateZ: 0,
+              rotate: ['15deg', 0],
+              opacity: [0, 1],
+              easing: "easeOutCubic"
+            },
+            offset
+          )
+          .add(
+            {
+              targets: nextImgs[1],
+              translateY: [600, 0],
+              translateZ: 0,
+              rotate: ['-15deg', 0],
+              opacity: [0, 1],
+              easing: "easeOutCubic"
+            },
+            "-=" + imgOffset
+          )
+          .add(
+            {
+              targets: nextImgs[2],
+              translateY: [600, 0],
+              translateZ: 0,
+              rotate: ['15deg', 0],
+              opacity: [0, 1],
+              easing: "easeOutCubic"
+            },
+            "-=" + imgOffset
+          )
+          .add(
+            {
+              targets: nextImgs[3],
+              translateY: [600, 0],
+              translateZ: 0,
+              rotate: ['-15deg', 0],
+              opacity: [0, 1],
+              easing: "easeOutCubic"
+            },
+            "-=" + imgOffset
+          )
+          .add(
+            {
+              targets: nextText,
+              translateY: ['.75em', 0],
+              translateZ: 0,
+              opacity: [0, 1],
+              easing: "easeOutQuint",
+              duration: t * 1.5,
+              delay: (el, i) => 10 * (i + 1)
+            },
+            offset
+          );
+      }
+
+      let isPlaying = false;
+
+      function updateSlider(newIndex) {
+        const currentItem = items[current];
+        const newItem = items[newIndex];
+
+        function callback() {
+          currentItem.classList.remove("is-active");
+          newItem.classList.add("is-active");
+          current = newIndex;
+          isPlaying = false;
+        }
+
+        anim(currentItem, newItem, callback);
+      }
+
+      function next() {
+        if (isPlaying) return;
+        isPlaying = true;
+        const newIndex = current === items.length - 1 ? 0 : current + 1;
+        updateSlider(newIndex);
+      }
+
+      function prev() {
+        if (isPlaying) return;
+        isPlaying = true;
+        const newIndex = current === 0 ? items.length - 1 : current - 1;
+        updateSlider(newIndex);
+      }
+
+      nextBtn.onclick = next;
+      prevBtn.onclick = prev;
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+
+  </script>
+            </div>
+        </div>
+        <section class="card-info">
+            <div class="info1">
+                <p>who we are</p>
+                <h1>An award-winning design & dev team <br> 
+                    that is proud of our work  👋</h1>
+            </div>
+            <div class="info2">
+                <div class="a1">
+                    <p>
+                    Over 10 years of combined experience, <br>
+                    and know a thing or two about designing <br>
+                    websites and mobile apps.</p>
+                </div>
+                <div class="a2">
+                    <p>Were divided, a moved night light darkness winged may <br>
+                        also make man for. Winged the for Earth creeping appear <br>
+                        evening, gathered Forth so he. Life that dry of created <br>
+                        greater can't also gathered female green.</p>
+                </div>
+            </div>
+            <div class="btn">
+                <button>
+                    About us
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </div>
+        </section>
+        <section class="images container">
+            <div class="a1 card">
+            <div class="z">
+                <i class="fa-solid fa-mug-hot"></i>
+                <p>Web Design and <br>
+                    Development</p>
+            </div>
+            </div>
+            <div class="a2 card">
+            <div class="z">
+                <i class="fa-solid fa-gear"></i>
+                <p>Brand Strategy <br>
+                    Accelerator</p>
+            </div>
+            </div>
+            <div class="a3 card">
+            <div class="z">
+                <i class="fa-solid fa-anchor"></i>
+                <p>Packaging and Brand <br>
+                    Identity</p>
+            </div>
+            </div>
+            <div class="a4 card">
+            <div class="z">
+                <i class="fa-solid fa-book-open"></i>
+                <p>Content Production</p>
+            </div>
+            </div>
+        </section>
+        <section class="featured-work container">
+            <h2>Featured work</h2>
+            <div class="work-items">
+                <div class="work-item">
+                    <img src="img/imagedog.jpg" alt="Funny Dog">
+                    <p class="work-description">Funny Dog</p>
+                    <p class="work-category">Photography</p>
+                </div>
+                <div class="work-item">
+                    <img src="img/imagecurology.jpg" alt="Creative Branding">
+                    <p class="work-description">Creative Branding</p>
+                    <p class="work-category">Branding</p>
+                </div>
+                <div class="work-item">
+                    <img src="img/imagetele.jpg" alt="Mobile App">
+                    <p class="work-description">Mobile App</p>
+                    <p class="work-category">UI/UX Design</p>
+                </div>
+                <div class="work-item">
+                    <img src="img/imagewatch.jpg" alt="Watch Design">
+                    <p class="work-description">Watch Design</p>
+                    <p class="work-category">Design</p>
+                </div>
+            </div>
+        </section>
+        <section class="work-process container">
+            <h1>Work process</h1>
+            <div class="info-cont">
+                <ul>
+                    <li class="selected">----- Search an Idea</li>
+                    <li>Design</li>
+                    <li>Development</li>
+                    <li>Release</li>
+                </ul>
+                <div class="description">
+                    <p>God he their every blessed upon male earth also <br>
+                        midst fill creeping Seas their winged can't shall <br>
+                        signs sea mornings gathered brought, creeping <br>
+                        fruitful you'll open there bearing.</p>
+                </div>
+            </div>
+            <button class="read-more">read more</button>
+            <img class="pr-img" src="icon/process icon_1o.png" alt="">
+        </section>
+        <section class="digital-creation container">
+            <div class="content">
+                <div class="text">
+                    <h2>We create everything digital, printable and analytical</h2>
+                    <p>Won't seasons, appear days them stars replenish divided. All created 
+                        saw his play seas man and gathering creeping cattle fly. Their sea place lights, 
+                        midst bearing fowl above.</p>
+                    <button class="read-more">read more</button>
+                </div>
+                <div class="images">
+                    <img src="img/imagefriend.jpg" alt="Image 1">
+                    <img src="img/Rectangle 64cactus.jpg" alt="Image 2">
+                    <img src="img/imageoffice.jpg" alt="Image 3">
+                </div>
+            </div>
+        </section>
+        <section class="values container">
+            <h2>Values</h2>
+            <div class="values-content">
+                <div class="value-item">
+                    <h3><img src="icon/quality iconicon1.png" alt="Quality"> Excellent Quality</h3>
+                    <p>Forth forth moveth shall I unto midst tree, a fruit great subdue a every be so a fowl.</p>
+                    <a href="#" class="read-more">read more <span>→</span></a>
+                </div>
+                <div class="value-item">
+                    <h3><img src="icon/customer iconicon2.png" alt="Customer Service"> Customer Service</h3>
+                    <p>Be saying moveth spirit fruitful called set evening fly give shall moveth lesser very.</p>
+                    <a href="#" class="read-more">read more <span>→</span></a>
+                </div>
+                <div class="value-item">
+                    <h3><img src="icon/people iconicon3.png" alt="Best People"> The best People</h3>
+                    <p>Heaven to bearing that yielding and man. Brought over shall fill over blessed, he appear.</p>
+                    <a href="#" class="read-more">read more <span>→</span></a>
+                </div>
+            </div>
+        </section>
+        <section class="reviews container">
+            <div class="icon">
+                <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="info">
+                <h5>	“  There from stars gathering gathered, upon tree brought <br> 
+                    life fruitful shall that together without there form  <br>
+                    You make, morning he from unto.  ”</h5>
+            </div>
+            <div class="p1">
+                <p>Brian Newton, Unvab Inc.</p>
+            </div>
+            <div class="p2">
+                <p>01 - 03</p>
+            </div>
+            <img src="icon/shape_2shape.png" alt="">
+        </section>
+        <section class="clients">
+            <div class="title">
+                <p>our clients</p>
+                <h3>We've worked <br>
+                    with 50+ brands</h3>
+            </div>
+            <div class="icons">
+                <img src="icon/logo_1.png" alt="">
+                <img src="icon/logo_2.png" alt="">
+                <img src="icon/logo_3.png" alt="">
+                <img src="icon/logo_4.png" alt="">
+                <img src="icon/logo_5.png" alt="">
+                <img src="icon/logo_6.png" alt="">
+            </div>
+        </section>
+        <section class="whats-new container">
+            <h2>What's new?</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="img/imageoffice.jpg" alt="Office">
+                    <p class="date">12 may, 2020</p>
+                    <p class="title">Office explained in fewer than 100+ Characters</p>
+                </div>
+                <div class="card">
+                    <img src="img/imagedogs.jpg" alt="Dog">
+                    <p class="date">08 may, 2020</p>
+                    <p class="title">This week's top Stories about Development</p>
+                </div>
+                <div class="card">
+                    <img src="img/imagefriend.jpg" alt="Business">
+                    <p class="date">05 may, 2020</p>
+                    <p class="title">Facts about Business that you never knew</p>
+                </div>
+            </div>
+            <button class="load-more">click</button>
+        </section>
+        <section class="lets-work">
+            <div class="a1">
+                <h1>Let’s work <br>
+                    together</h1>
+            </div>
+            <div class="a2"></div>
+            <span>→</span>
+        </section>
+        <footer class="footer container">
+            <div class="footer-section footer-about">
+                <h3>Themebau.</h3>
+                <p>Be saying moveth spirit fruitful called set evening fly give shall moveth lesser very.</p>
+                <p>+44 207 112 82 85<br>hello@themebau.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-section footer-newsletter">
+                <h3>subscribe of newsletter</h3>
+                <form action="#">
+                    <input type="email" placeholder="Your Email *" required>
+                    <button type="submit">send •</button>
+                </form>
+            </div>
+            <div class="footer-section footer-links">
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Our team</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Work process</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Our blog</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2020 - RunNextRun.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
